@@ -1,3 +1,5 @@
+// ASYNC AWAIT NOW DISPLAYS PROMPTS BUT NOT LISTING EMPLOYEES ON THE SHOW COMMAND ADD WORKS BUT NOT DELETE
+
 function view(arrEmployees) {
     // COUNTER THAT APPEARS NEXT TO EMPLOYEES NAME (START AT 1)
     let i = 1
@@ -45,14 +47,7 @@ function init() {
     let arrEmployees = []
 
     // FETCH THE JSON DATA
-    async function data(_employees) {
-        try {
-        const response = await response.json() 
-        const arrEmployees = await response.json();{
-            for (let employee of data.employees) {
-                arrEmployees.push(`${employee.name} (${employee.title})`)
-            }
-            // KEEP THE USER AT THE COMMAND MENU
+              // KEEP THE USER AT THE COMMAND MENU
             do {
                 // ALLOW THE USER TO ENTER A COMMAND
                 let command = prompt('Enter command').toLowerCase()
@@ -75,11 +70,26 @@ function init() {
             } while (true)
             console.log('The program has been terminated.')
         }
-    } catch(e) {
-        console.log('Something went wrong.')
+
+// ASYNC AWAIT NOW DISPLAYS PROMPTS BUT NOT LISTING EMPLOYEES ON THE SHOW COMMAND; ADD WORKS BUT NOT DELETE        
+        async function getEmployee(employee) {
+            try {
+                
+                async function getEmployee(employees) 
+                {
+                  let response = await fetch(`../data/employees.json'/${employee.name} (${employee.title})`);
+                  let data = await response.json()
+                  return data;
+                }
+                
+                getEmployee('arrEmployees')
+                  .then(data => console.log(data)); 
+                
+        } catch(e) {
+            console.log('Something went wrong.')
+            }
+            
         }
-        
-    }
-}
-fetch('../data/employees.json');
+
+// fetch('../data/employees.json');
 init()

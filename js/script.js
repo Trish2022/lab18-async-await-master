@@ -1,3 +1,4 @@
+// THIS IS THE ORIGINAL SCRIPT WITH THE PROMISE WE NEED TO CONVERT TO ASYNC AWAIT
 function view(arrEmployees) {
     // COUNTER THAT APPEARS NEXT TO EMPLOYEES NAME (START AT 1)
     let i = 1
@@ -45,6 +46,7 @@ async function init() {
     // START WITH AN EMPTY ARRAY
     let arrEmployees = []
     // FETCH THE JSON DATA
+    // THIS IS THE ORIGINAL SCRIPT WITH THE PROMISE WE NEED TO CONVERT TO ASYNC AWAIT
     fetch('../data/employees.json')
         .then( response => response.json() )
         .then( data => {
